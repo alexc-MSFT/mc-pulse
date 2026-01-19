@@ -1,0 +1,38 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.24/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.24",
+    "version": "1.0.0",
+    "id": "${{TEAMS_APP_ID}}",
+    "developer": {
+        "name": "Microsoft",
+        "websiteUrl": "https://www.microsoft.com",
+        "privacyUrl": "https://www.microsoft.com",
+        "termsOfUseUrl": "https://www.microsoft.com"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "Message Center Pulse Agent",
+        "full": "Message Center Pulse Agent"
+    },
+    "description": {
+        "short": "Easily access, query and understand Microsoft 365 Message Center updates.",
+        "full": "Message Center Pulse agent helps you stay ahead of operational impacts across your Microsoft 365 environment by retrieving authoritative Message Center posts directly through the Service Communications API. Whether you're monitoring planned maintenance, reviewing advisories, tracking active incidents, or preparing stakeholder communications, the agent provides clear, structured insights tailored to your needs. With support for filtering by service, classification, status and more, it delivers accurate, real‑time information in a concise, business‑friendly format—making it easier for IT teams and decision‑makers to stay informed and respond proactively."
+    },
+    "accentColor": "#FFFFFF",
+    "copilotAgents": {
+        "declarativeAgents": [            
+            {
+                "id": "declarativeAgent",
+                "file": "declarativeAgent.json"
+            }
+        ]
+    },
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}

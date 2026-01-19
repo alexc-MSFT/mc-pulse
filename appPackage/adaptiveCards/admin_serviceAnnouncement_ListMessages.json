@@ -1,0 +1,177 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.5",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "${title}",
+            "weight": "Bolder",
+            "size": "Medium",
+            "wrap": true
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "ID",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Category",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Severity",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Published",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Last Updated",
+                                    "wrap": true
+                                },
+                                {
+                                    "$when": "${actionRequiredByDateTime != null}",
+                                    "type": "TextBlock",
+                                    "text": "Action required by",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "Container",
+                                    "items": [
+                                        {
+                                            "$data": "${details}",
+                                            "$when": "${name == 'RoadmapIds'}",
+                                            "type": "TextBlock",
+                                            "text": "Roadmap IDs"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${id}",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "$when": "${category == 'stayInformed'}",
+                                    "text": "Stay Informed",
+                                    "weight": "Bolder",
+                                    "isVisible": "${category == 'stayInformed'}"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "$when": "${category == 'planForChange'}",
+                                    "text": "Plan for Change",
+                                    "weight": "Bolder",
+                                    "isVisible": "${category == 'planForChange'}"
+                                },
+                                 {
+                                    "type": "TextBlock",
+                                    "$when": "${category == 'preventOrFixIssue'}",
+                                    "text": "Prevent or Fix Issue",
+                                    "weight": "Bolder",
+                                    "isVisible": "${category == 'preventOrFixIssue'}"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "$when": "${severity == 'normal'}",
+                                    "text": "Normal",
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${formatDateTime(startDateTime, 'MMM d, yyyy')}",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${formatDateTime(lastModifiedDateTime, 'MMM d, yyyy')}",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "$when": "${actionRequiredByDateTime != null}",
+                                    "type": "TextBlock",
+                                    "text": "${formatDateTime(actionRequiredByDateTime, 'MMM d, yyyy')}",
+                                    "wrap": true,
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "Container",
+                                    "items": [
+                                        {
+                                            "$data": "${details}",
+                                            "$when": "${name == 'RoadmapIds'}",
+                                            "type": "TextBlock",
+                                            "text": "${value}",
+                                            "weight": "Bolder"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "Tags:",
+            "wrap": true,
+            "weight": "Bolder"
+        },
+        {
+            "type": "Container",
+            "$data": "${$root['tags']}",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "${$data}",
+                    "wrap": true
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "Services:",
+            "wrap": true,
+            "weight": "Bolder",
+            "separator": true
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "${$data}",
+                    "wrap": true
+                }
+            ],
+            "$data": "${$root['services']}"
+        }
+    ]
+}

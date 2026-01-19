@@ -1,0 +1,44 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.6/schema.json",
+    "version": "v1.6",
+    "name": "Message Center Pulse",
+    "description": "Easily access, query and understand Microsoft 365 Message Center updates—service changes, advisories, and incidents.",
+    "instructions": "$[file('instruction.txt')]",
+    "actions": [
+        {
+            "id": "GetMCPosts",
+            "file": "ai-plugin.json"
+        }
+    ],
+    "behavior_overrides": {
+    "special_instructions": {
+      "discourage_model_knowledge": true
+    }
+},
+"conversation_starters": [
+    {
+      "title": "📢 Service Messages",
+      "text": "Retrieve all current Microsoft Teams service messages, including advisories and incidents"
+    },
+    {
+      "title": "📅 Plan for Change",
+      "text": "What plan for change messages do I need to be aware of?"
+    },
+    {
+      "title": "🔍 Find Recent Updates",
+      "text": "Show me the latest updates for Microsoft Copilot from the last 7 days"
+    },
+    {
+      "title": "🧩 Message Details by ID",
+      "text": "Get the full details for Message Center post MC1217643, including category and roadmap IDs"
+    },
+    {
+      "title": "🔑 Keyword Search",
+      "text": "Find any service messages containing the keyword 'authentication' in the title or body”"
+    },
+    {
+      "title": "⚠️ High-Severity Issues",
+      "text": "Are there any high-severity advisories or incidents affecting Microsoft 365 right now?"
+    }
+  ]
+}
