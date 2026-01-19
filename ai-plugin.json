@@ -1,0 +1,39 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.3/schema.json",
+    "schema_version": "v2.3",
+    "name_for_human": "Service Communications Graph API",
+    "description_for_human": "Provides information about Message Center service communications for Microsoft 365 services.",
+    "description_for_model": "Provides information about Message Center service communications for Microsoft 365 services.",
+    "contact_email": "alex.clark@microsoft.com",
+    "namespace": "mcpulseagent",
+    "capabilities": {},
+    "functions": [
+        {
+            "name": "admin_serviceAnnouncement_ListMessages",
+            "description": "Retrieve the serviceUpdateMessage resources from the messages navigation property. This operation retrieves all service update messages that exist for the tenant.",
+             "capabilities": {
+                "response_semantics": {
+                    "data_path": "$.value",
+                    "static_template": {
+                        "file": "adaptiveCards/admin_serviceAnnouncement_ListMessages.json"
+                    }
+                }
+            }
+        }
+    ],
+    "runtimes": [
+        {
+            "type": "OpenApi",
+            "auth": {
+                "type": "OAuthPluginVault",
+                "reference_id": "<YOUR OAUTH CLIENT REGISTRATION ID GOES HERE>"
+            },
+            "spec": {
+                "url": "apiSpecificationFile/openapi.yaml"
+            },
+            "run_for_functions": [
+                "admin_serviceAnnouncement_ListMessages"
+            ]
+        }
+    ]
+}
