@@ -26,7 +26,7 @@
             "type": "OpenApi",
             "auth": {
                 "type": "OAuthPluginVault",
-                "reference_id": "<YOUR OAUTH CLIENT REGISTRATION ID GOES HERE>"
+                "reference_id": "{YOUR OAUTH CLIENT REGISTRATION ID GOES HERE}"
             },
             "spec": {
                 "url": "apiSpecificationFile/openapi.yaml"
