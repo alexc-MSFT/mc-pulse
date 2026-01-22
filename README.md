@@ -7,6 +7,10 @@
 Message Center Pulse is a declarative agent built in the Agents Toolkit for the Microsoft 365 Copilot. It helps IT administrators query, filter, and understand Microsoft 365 Message Center posts - including service changes, advisories, and incidents using the Microsoft Graph Service Communications API.
 It leverages adaptive cards to provide consistent formatting in responses.
 
+---
+
+> **Note:** This agent is not intended to replace or be a duplication of the official 1st party 'Microsoft 365 Admin' agent. For full administation coverage, Microsoft recommends using the Microsoft 365 Admin agent. This agent is solely tailored to Message Center posts only. Read more about the admin agent here - https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-for-microsoft-365-admin.
+
 This agent leverages the [Microsoft Graph Service Communications API](https://learn.microsoft.com/en-us/graph/api/resources/service-communications-api-overview?view=graph-rest-1.0), specifically the [serviceAnnouncement/messages](https://learn.microsoft.com/en-us/graph/api/resources/serviceannouncement?view=graph-rest-1.0) endpoint, to retrieve Message Center data directly from Microsoft 365.
 
 ---
